@@ -6,8 +6,8 @@ defmodule IdiotBox.TrailersTest do
   describe "trailers" do
     alias IdiotBox.Trailers.Trailer
 
-    @valid_attrs %{description: "some description", poster: "some poster", preview: "some preview", release_date: "some release_date", title: "some title"}
-    @update_attrs %{description: "some updated description", poster: "some updated poster", preview: "some updated preview", release_date: "some updated release_date", title: "some updated title"}
+    @valid_attrs %{description: "some description", poster: "some poster", preview: "some preview", release_date: Date.utc_today(), title: "some title"}
+    @update_attrs %{description: "some updated description", poster: "some updated poster", preview: "some updated preview", release_date: Date.utc_today(), title: "some updated title"}
     @invalid_attrs %{description: nil, poster: nil, preview: nil, release_date: nil, title: nil}
 
     def trailer_fixture(attrs \\ %{}) do
@@ -34,7 +34,7 @@ defmodule IdiotBox.TrailersTest do
       assert trailer.description == "some description"
       assert trailer.poster == "some poster"
       assert trailer.preview == "some preview"
-      assert trailer.release_date == "some release_date"
+      assert trailer.release_date == Date.utc_today()
       assert trailer.title == "some title"
     end
 
@@ -48,7 +48,7 @@ defmodule IdiotBox.TrailersTest do
       assert trailer.description == "some updated description"
       assert trailer.poster == "some updated poster"
       assert trailer.preview == "some updated preview"
-      assert trailer.release_date == "some updated release_date"
+      assert trailer.release_date == Date.utc_today()
       assert trailer.title == "some updated title"
     end
 
