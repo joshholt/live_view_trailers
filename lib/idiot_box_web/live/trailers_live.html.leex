@@ -1,0 +1,33 @@
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <%= for trailer <- @trailers do %>
+        <div class="flip-card <%= if @current_preview && @current_preview_id == trailer.id, do: "flipped", else: "" %>">
+            <div class="inner">
+                <div class="front cursor-pointer"
+                     phx-click="show-preview"
+                     phx-value-id="<%= trailer.id %>" >
+                    <img class="rounded-2xl shadow-inner shadow-2xl"
+                         src="<%= trailer.poster %>"
+                         alt="<%= trailer.title %>" >
+                </div>
+                <div class="back bg-light-gray-800 shadow-inner rounded-2xl">
+                     <%= if @current_preview && @current_preview_id == trailer.id do %>
+                        <div class="back-content p-4">
+                            <div class="h-8 w-8 float-right cursor-pointer"
+                                 phx-click="close-preview"
+                                 phx-value-id="<%= trailer.id %>">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            </div>
+                            <h2>
+                                <%= trailer.title %>
+                                <p class="text-xs">Release Date: <%= trailer.release_date %></p>
+                            </h2>
+                            <video class="border-none" controls src="<%= @current_preview %>"></video>
+                            <video src="blob:https://www.youtube.com/c243cd4d-eeed-4b2f-a9c9-a99f2c057d2d"></video>
+                            <p class="hidden md:block md:h-80 lg:h-40 overflow-auto text-sm mt-5"><%= trailer.description %></p>
+                        </div>
+                    <%= end %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>

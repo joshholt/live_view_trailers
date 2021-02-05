@@ -1,0 +1,25 @@
+{
+    "name": "ID10T B0X -- Search the current Movie Trailers from Apple",
+    "short_name": "ID10T B0X",
+    "lang": "en-US",
+    "start_url": "/trailers",
+    "display": "standalone",
+    "theme_color": "gray",
+    "icons": [
+      {
+        "src": "/images/film.svg",
+        "sizes": "192x192",
+        "type": "img/svg"
+      },
+      {
+        "src": "/images/film.svg",
+        "sizes": "512x512",
+        "type": "img/svg"
+      },
+      {
+        "src": "/images/film.svg",
+        "sizes": "513x513",
+        "type": "img/svg"
+      }
+    ]
+  }
